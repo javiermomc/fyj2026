@@ -4,166 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Fer y Javier</title>
-    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Pinyon+Script&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #D4AF37;
             --black: #0a0a0a;
+            --white: #ffffff;
+            --overlay: rgba(0, 0, 0, 0.6);
         }
-        body, html {
-            margin: 0; padding: 0;
-            overflow: hidden;
-            background-color: var(--black);
-            color: white;
-            font-family: 'Forum', serif;
-        }
-        .pinyon { font-family: 'Pinyon Script', cursive; }
-        
-        /* Efecto Sobre */
-        #envelope {
-            position: fixed;
-            inset: 0;
-            z-index: 50;
-            background: var(--black);
-            border: 15px solid var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .envelope-open { transform: translateY(-100%); }
 
-        /* Carousel Layout */
-        .section-container {
-            height: 100vh;
-            width: 100vw;
-            scroll-snap-type: y mandatory;
-            overflow-y: scroll;
-            scrollbar-width: none;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--black);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+            overflow: hidden; /* Controlado por JS */
         }
-        .section-container::-webkit-scrollbar { display: none; }
-        
+
+        /* --- INTRO / SOBRE --- */
+        #envelope-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            cursor: pointer;
+            border: 15px solid var(--gold);
+            transition: transform 1s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.8s;
+        }
+
+        .envelope-content {
+            text-align: center;
+        }
+
+        .envelope-content h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--gold);
+        }
+
+        /* Animación de apertura */
+        .opened-envelope {
+            transform: translateY(-100vh);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* --- CAROUSEL ESTRUCTURA --- */
+        .carousel-container {
+            height: 100vh;
+            width: 100%;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+
         section {
             height: 100vh;
-            width: 100vw;
-            scroll-snap-align: start;
-            position: relative;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            position: relative;
+            scroll-snap-align: start;
+            padding: 20px;
             text-align: center;
-            padding: 2rem;
-        }
-
-        .bg-overlay {
-            position: absolute;
-            inset: 0;
             background-size: cover;
             background-position: center;
-            opacity: 0.4;
-            z-index: -1;
         }
 
-        .gold-button {
-            border: 1px solid var(--gold);
+        /* Efecto Opaco para el fondo */
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--overlay);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h2 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--gold); margin-bottom: 1rem; }
+        p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+
+        /* --- BOTONES --- */
+        .btn-gold {
+            background: transparent;
+            border: 2px solid var(--gold);
             color: var(--gold);
-            padding: 10px 25px;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
             transition: 0.3s;
-            background: rgba(0,0,0,0.5);
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            border-radius: 5px;
         }
-        .gold-button:hover { background: var(--gold); color: black; }
-        
-        iframe {
-            border: 1px solid var(--gold);
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* --- MAPA EMBEBIDO --- */
+        .map-container {
             width: 100%;
-            max-width: 600px;
             height: 300px;
+            margin-bottom: 15px;
+            border: 2px solid var(--gold);
         }
+
+        iframe { width: 100%; height: 100%; border: none; }
+
+        /* --- RESPONSIVE LAYOUTS --- */
+        @media (max-width: 768px) {
+            h2 { font-size: 2.5rem; }
+            .map-container { height: 200px; }
+            #envelope-wrapper { border-width: 8px; }
+        }
+
+        /* Backgrounds con fallback (Google Images Placeholder) */
+        .sec-1 { background-image: url('/assets/section-1.webp'), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80'); }
+        .sec-2 { background-image: url('/assets/section-2.webp'), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80'); }
+        .sec-3 { background-image: url('/assets/section-3.webp'), url('https://images.unsplash.com/photo-1414124488080-0188dcbb8834?auto=format&fit=crop&q=80'); }
+        .sec-4 { background-image: url('/assets/section-4.webp'), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80'); }
+        .sec-5 { background-image: url('/assets/section-5.webp'), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80'); }
+
     </style>
 </head>
 <body>
 
-    <div id="envelope" onclick="openEnvelope()">
-        <div class="text-center p-8">
-            <h1 class="pinyon text-6xl md:text-9xl text-[#D4AF37]">Boda Fer y Javier</h1>
-            <p class="mt-4 tracking-[0.5em] uppercase text-sm">Haz clic o desliza para abrir</p>
+    <div id="envelope-wrapper" onclick="openInvitation()">
+        <div class="envelope-content">
+            <h1>Boda Fer y Javier</h1>
+            <p style="letter-spacing: 5px; color: var(--gold);">HAZ CLICK PARA ABRIR</p>
         </div>
     </div>
 
-    <div class="section-container" onscroll="handleScroll()">
+    <div class="carousel-container">
         
-        <section>
-            <div class="bg-overlay" style="background-image: url('/assets/section-1.webp'), url('https://i.pinimg.com/originals/8e/1e/12/8e1e12933703c399b66d58079a615438.jpg');"></div>
-            <h2 class="text-3xl md:text-5xl mb-4">Te invitamos a nuestra boda</h2>
-            <div class="pinyon text-7xl md:text-9xl text-[#D4AF37]">14.11.2026</div>
+        <section class="sec-1">
+            <div class="content">
+                <h2>Te invitamos a nuestra boda</h2>
+                <h1 style="font-size: 5rem; font-weight: 300;">14 / 11 / 2026</h1>
+            </div>
         </section>
 
-        <section>
-            <div class="bg-overlay" style="background-image: url('/assets/section-2.webp'), url('https://i.pinimg.com/originals/65/56/65/655665b17a022562477969f62153922c.jpg');"></div>
-            <h2 class="pinyon text-5xl mb-6 text-[#D4AF37]">Lugar del Evento</h2>
-            <p class="mb-4 text-sm md:text-lg">Supermanzana conocido, 76915 El Romeral, Qro.</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.123!2d-100.4123!3d20.5342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d346f0!2zRWwgUm9tZXJhbA!5e0!3m2!1ses!2smx!4v123456789" allowfullscreen="" loading="lazy"></iframe>
-            <a href="https://maps.app.goo.gl/RPDmAjXuN1ryQbR28" class="gold-button mt-6">
-                <img src="https://www.google.com/images/branding/product/ico/maps15_24dp.png" width="20" alt="Maps"> Ver en Google Maps
-            </a>
+        <section class="sec-2">
+            <div class="content">
+                <h2>Lugar del Evento</h2>
+                <p>Supermanzana conocido, 76915 El Romeral, Qro.</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.425330880173!2d-100.4439077!3d20.5750036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3408092a9459d%3A0x67343e8c3383186d!2s76915%20El%20Romeral%2C%20Qro.!5e0!3m2!1ses!2smx!4v1700000000000"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/RPDmAjXuN1ryQbR28" class="btn-gold">
+                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" width="20" alt="GMap"> Ver en Google Maps
+                </a>
+            </div>
         </section>
 
-        <section>
-            <div class="bg-overlay" style="background-image: url('/assets/section-3.webp'), url('https://i.pinimg.com/originals/60/7b/72/607b723d7063d8d5df836b33534a2e5d.jpg');"></div>
-            <h2 class="pinyon text-6xl mb-6 text-[#D4AF37]">Código de Vestimenta</h2>
-            <p class="text-2xl md:text-4xl uppercase tracking-widest">Formal</p>
-            <p class="mt-2">Traje y Vestido de noche</p>
+        <section class="sec-3">
+            <div class="content">
+                <h2>Vestimenta</h2>
+                <p style="font-size: 2rem;">Formal</p>
+                <p>Traje y Vestido Largo</p>
+            </div>
         </section>
 
-        <section>
-            <div class="bg-overlay" style="background-image: url('/assets/section-4.webp'), url('https://i.pinimg.com/originals/af/7e/8e/af7e8e60a996f082e634737a949666c3.jpg');"></div>
-            <h2 class="pinyon text-5xl mb-4 text-[#D4AF37]">Hospedaje Recomendado</h2>
-            <h3 class="text-3xl mb-8">Hotel Real de Minas</h3>
-            <a href="https://maps.app.goo.gl/JUztvixAeBRP8nhk7" class="gold-button">
-                 <img src="https://www.google.com/images/branding/product/ico/maps15_24dp.png" width="20" alt="Maps"> Cómo llegar
-            </a>
+        <section class="sec-4">
+            <div class="content">
+                <h2>Hospedaje Recomendado</h2>
+                <p style="font-size: 2rem;">Hotel Real de Minas</p>
+                <a href="https://maps.app.goo.gl/JUztvixAeBRP8nhk7" class="btn-gold">
+                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" width="20" alt="GMap"> Ubicar Hotel
+                </a>
+            </div>
         </section>
 
-        <section>
-            <div class="bg-overlay" style="background-image: url('/assets/section-5.webp'), url('https://i.pinimg.com/originals/44/1a/7d/441a7d6e492f9d86895c862375811771.jpg');"></div>
-            <h2 class="pinyon text-7xl md:text-9xl mb-8 text-[#D4AF37]">Te esperamos</h2>
-            <button class="gold-button text-xl px-12 py-4">Confirmar Asistencia</button>
+        <section class="sec-5">
+            <div class="content">
+                <h2>Te esperamos</h2>
+                <a href="#" class="btn-gold" style="padding: 20px 40px; font-size: 1.5rem;">Confirmar Asistencia</a>
+            </div>
         </section>
 
     </div>
 
     <script>
-        const envelope = document.getElementById('envelope');
-        
-        function openEnvelope() {
-            envelope.classList.add('envelope-open');
-            document.body.style.overflow = 'auto'; // Habilita el scroll
+        function openInvitation() {
+            const envelope = document.getElementById('envelope-wrapper');
+            envelope.classList.add('opened-envelope');
+            document.body.style.overflow = 'auto'; // Habilita el scroll tras abrir
         }
 
-        // Detecta el primer scroll para abrir el sobre
-        function handleScroll() {
-            if (!envelope.classList.contains('envelope-open')) {
-                openEnvelope();
-            }
-        }
-
-        // Listener para la rueda del ratón antes de abrir
+        // Detectar scroll inicial para abrir el sobre
         window.addEventListener('wheel', (e) => {
-            if (e.deltaY > 0) openEnvelope();
+            if (e.deltaY > 0) openInvitation();
         });
-
-        // Soporte táctil básico
-        let touchstartY = 0;
-        window.addEventListener('touchstart', e => touchstartY = e.touches[0].screenY);
-        window.addEventListener('touchend', e => {
-            if (e.changedTouches[0].screenY < touchstartY) openEnvelope();
+        
+        window.addEventListener('touchstart', (e) => {
+            // Un pequeño retraso para suavizar en móviles
+            setTimeout(openInvitation, 100);
         });
     </script>
 </body>
