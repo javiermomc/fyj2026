@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Fer y Javier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Forum&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --black: #0a0a0a;
+        }
+        body, html {
+            margin: 0; padding: 0;
+            overflow: hidden;
+            background-color: var(--black);
+            color: white;
+            font-family: 'Forum', serif;
+        }
+        .pinyon { font-family: 'Pinyon Script', cursive; }
+        
+        /* Efecto Sobre */
+        #envelope {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            background: var(--black);
+            border: 15px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .envelope-open { transform: translateY(-100%); }
+
+        /* Carousel Layout */
+        .section-container {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scrollbar-width: none;
+        }
+        .section-container::-webkit-scrollbar { display: none; }
+        
+        section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .gold-button {
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            background: rgba(0,0,0,0.5);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .gold-button:hover { background: var(--gold); color: black; }
+        
+        iframe {
+            border: 1px solid var(--gold);
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="envelope" onclick="openEnvelope()">
+        <div class="text-center p-8">
+            <h1 class="pinyon text-6xl md:text-9xl text-[#D4AF37]">Boda Fer y Javier</h1>
+            <p class="mt-4 tracking-[0.5em] uppercase text-sm">Haz clic o desliza para abrir</p>
+        </div>
+    </div>
+
+    <div class="section-container" onscroll="handleScroll()">
+        
+        <section>
+            <div class="bg-overlay" style="background-image: url('/assets/section-1.webp'), url('https://i.pinimg.com/originals/8e/1e/12/8e1e12933703c399b66d58079a615438.jpg');"></div>
+            <h2 class="text-3xl md:text-5xl mb-4">Te invitamos a nuestra boda</h2>
+            <div class="pinyon text-7xl md:text-9xl text-[#D4AF37]">14.11.2026</div>
+        </section>
+
+        <section>
+            <div class="bg-overlay" style="background-image: url('/assets/section-2.webp'), url('https://i.pinimg.com/originals/65/56/65/655665b17a022562477969f62153922c.jpg');"></div>
+            <h2 class="pinyon text-5xl mb-6 text-[#D4AF37]">Lugar del Evento</h2>
+            <p class="mb-4 text-sm md:text-lg">Supermanzana conocido, 76915 El Romeral, Qro.</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.123!2d-100.4123!3d20.5342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d346f0!2zRWwgUm9tZXJhbA!5e0!3m2!1ses!2smx!4v123456789" allowfullscreen="" loading="lazy"></iframe>
+            <a href="https://maps.app.goo.gl/RPDmAjXuN1ryQbR28" class="gold-button mt-6">
+                <img src="https://www.google.com/images/branding/product/ico/maps15_24dp.png" width="20" alt="Maps"> Ver en Google Maps
+            </a>
+        </section>
+
+        <section>
+            <div class="bg-overlay" style="background-image: url('/assets/section-3.webp'), url('https://i.pinimg.com/originals/60/7b/72/607b723d7063d8d5df836b33534a2e5d.jpg');"></div>
+            <h2 class="pinyon text-6xl mb-6 text-[#D4AF37]">Código de Vestimenta</h2>
+            <p class="text-2xl md:text-4xl uppercase tracking-widest">Formal</p>
+            <p class="mt-2">Traje y Vestido de noche</p>
+        </section>
+
+        <section>
+            <div class="bg-overlay" style="background-image: url('/assets/section-4.webp'), url('https://i.pinimg.com/originals/af/7e/8e/af7e8e60a996f082e634737a949666c3.jpg');"></div>
+            <h2 class="pinyon text-5xl mb-4 text-[#D4AF37]">Hospedaje Recomendado</h2>
+            <h3 class="text-3xl mb-8">Hotel Real de Minas</h3>
+            <a href="https://maps.app.goo.gl/JUztvixAeBRP8nhk7" class="gold-button">
+                 <img src="https://www.google.com/images/branding/product/ico/maps15_24dp.png" width="20" alt="Maps"> Cómo llegar
+            </a>
+        </section>
+
+        <section>
+            <div class="bg-overlay" style="background-image: url('/assets/section-5.webp'), url('https://i.pinimg.com/originals/44/1a/7d/441a7d6e492f9d86895c862375811771.jpg');"></div>
+            <h2 class="pinyon text-7xl md:text-9xl mb-8 text-[#D4AF37]">Te esperamos</h2>
+            <button class="gold-button text-xl px-12 py-4">Confirmar Asistencia</button>
+        </section>
+
+    </div>
+
+    <script>
+        const envelope = document.getElementById('envelope');
+        
+        function openEnvelope() {
+            envelope.classList.add('envelope-open');
+            document.body.style.overflow = 'auto'; // Habilita el scroll
+        }
+
+        // Detecta el primer scroll para abrir el sobre
+        function handleScroll() {
+            if (!envelope.classList.contains('envelope-open')) {
+                openEnvelope();
+            }
+        }
+
+        // Listener para la rueda del ratón antes de abrir
+        window.addEventListener('wheel', (e) => {
+            if (e.deltaY > 0) openEnvelope();
+        });
+
+        // Soporte táctil básico
+        let touchstartY = 0;
+        window.addEventListener('touchstart', e => touchstartY = e.touches[0].screenY);
+        window.addEventListener('touchend', e => {
+            if (e.changedTouches[0].screenY < touchstartY) openEnvelope();
+        });
+    </script>
+</body>
+</html>
