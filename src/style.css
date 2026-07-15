@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import "tailwindcss";
+
+.font-wedding {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@keyframes wave-move-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes wave-move-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-wave-slow {
+  animation: wave-move-left 24s linear infinite;
+}
+
+.animate-wave-medium {
+  animation: wave-move-right 16s linear infinite;
+}
+
+.animate-wave-fast {
+  animation: wave-move-left 10s linear infinite;
+}

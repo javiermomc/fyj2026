@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Fer y Javier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--black);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--white);
+            overflow: hidden; /* Controlado por JS */
+        }
+
+        /* --- INTRO / SOBRE --- */
+        #envelope-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100dvh;
+            background: var(--black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            cursor: pointer;
+            border: 15px solid var(--gold);
+            transition: transform 1s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.8s;
+        }
+
+        .envelope-content {
+            text-align: center;
+        }
+
+        .envelope-content h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--gold);
+        }
+
+        /* Animación de apertura */
+        .opened-envelope {
+            transform: translateY(-100vh);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* --- CAROUSEL ESTRUCTURA --- */
+        .carousel-container {
+            height: 100dvh;
+            width: 100%;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+
+        section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            scroll-snap-align: start;
+            padding: 20px;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Efecto Opaco para el fondo */
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--overlay);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h2 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--gold); margin-bottom: 1rem; }
+        p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+
+        /* --- BOTONES --- */
+        .btn-gold {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 5px;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        /* --- MAPA EMBEBIDO --- */
+        .map-container {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 15px;
+            border: 2px solid var(--gold);
+        }
+
+        iframe { width: 100%; height: 100%; border: none; }
+
+        .event-date {
+            font-size: 5rem;
+        }
+        /* --- RESPONSIVE LAYOUTS --- */
+        @media (max-width: 768px) {
+            h2 { font-size: 2.5rem; }
+            .map-container { height: 200px; }
+            #envelope-wrapper { border-width: 8px; }
+            .event-date { font-size: 3rem; }
+        }
+
+        /* Backgrounds con fallback (Google Images Placeholder) */
+        .sec-1 { background-image: url('/assets/section-1.webp'), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80'); }
+        .sec-2 { background-image: url('/assets/section-2.webp'), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80'); }
+        .sec-3 { background-image: url('/assets/section-3.webp'), url('https://images.unsplash.com/photo-1414124488080-0188dcbb8834?auto=format&fit=crop&q=80'); }
+        .sec-4 { background-image: url('/assets/section-4.webp'), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80'); }
+        .sec-5 { background-image: url('/assets/section-5.webp'), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80'); }
+
+    </style>
+</head>
+<body>
+
+    <div id="envelope-wrapper" onclick="openInvitation()">
+        <div class="envelope-content">
+            <h1>Boda</h1>
+            <h1>Fer y Javier</h1>
+            <p style="letter-spacing: 5px; color: var(--gold);">HAZ CLICK PARA ABRIR</p>
+        </div>
+    </div>
+
+    <div class="carousel-container">
+        
+        <section class="sec-1">
+            <div class="content">
+                <h2 class="event-date">Fer y Javier</h2>
+                <h2>Te invitamos a nuestra boda</h2>
+                <h1 style="font-weight: 300;" class="event-date">14 / 11 / 2026</h1>
+            </div>
+        </section>
+
+        <section class="sec-2">
+            <div class="content">
+                <h2>Lugar del Evento</h2>
+                <p>Supermanzana conocido, 76915 El Romeral, Qro.</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.2635522420537!2d-100.5009106!3d20.536394799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d34f52b4faf587%3A0xec3ed2ffa25ae451!2sEntrelago%20Salones%2C%20jardines%20y%20terraza!5e0!3m2!1ses!2smx!4v1770763735804!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/RPDmAjXuN1ryQbR28" class="btn-gold">
+                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" width="20" alt="GMap"> Ver en Google Maps
+                </a>
+            </div>
+        </section>
+
+        <section class="sec-3">
+            <div class="content">
+                <h2>Vestimenta</h2>
+                <p style="font-size: 2rem;">Formal</p>
+                <p><b>Caballeros:</b> Traje negro y corbata</p>
+                <p><b>Damas:</b> Vestido Largo</p>
+            </div>
+        </section>
+
+        <section class="sec-4">
+            <div class="content">
+                <h2>Hospedaje Recomendado</h2>
+                <p style="font-size: 2rem;">Hotel Real de Minas</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.3827628314816!2d-100.40896032416725!3d20.572420703294664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3453b03420477%3A0x677d07db4512b9d4!2sHotel%20Real%20de%20Minas%20Tradicional!5e0!3m2!1ses!2smx!4v1770763923593!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <a href="https://maps.app.goo.gl/JUztvixAeBRP8nhk7" class="btn-gold">
+                    <img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" width="20" alt="GMap"> Ver en Google Maps
+                </a>
+            </div>
+        </section>
+
+        <section class="sec-5">
+            <div class="content">
+                <h2>Te esperamos</h2>
+                <a href="#" class="btn-gold" style="padding: 20px 40px; font-size: 1.5rem;">Confirmar Asistencia</a>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function openInvitation() {
+            const envelope = document.getElementById('envelope-wrapper');
+            envelope.classList.add('opened-envelope');
+            document.body.style.overflow = 'auto'; // Habilita el scroll tras abrir
+        }
+
+        // Detectar scroll inicial para abrir el sobre
+        window.addEventListener('wheel', (e) => {
+            if (e.deltaY > 0) openInvitation();
+        });
+        
+        window.addEventListener('touchstart', (e) => {
+            // Un pequeño retraso para suavizar en móviles
+            setTimeout(openInvitation, 100);
+        });
+    </script>
+</body>
+</html>
