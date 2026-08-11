@@ -1,6 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import "tailwindcss";
 
+:root {
+  --page-bg-top: #f4efe9;
+  --page-bg-mid: #efe5d8;
+  --page-bg-bottom: #f8f5f1;
+  --page-accent: rgba(181, 133, 82, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, var(--page-accent), transparent 28%),
+    linear-gradient(180deg, var(--page-bg-top) 0%, var(--page-bg-mid) 35%, var(--page-bg-bottom) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%, cover;
+  background-attachment: local;
+  transition: background 0.4s ease;
+}
+
+landing-section {
+  display: block;
+  background: #0a0a0a;
+}
+
 .font-wedding {
   font-family: "Great Vibes", cursive;
   font-weight: 400;
