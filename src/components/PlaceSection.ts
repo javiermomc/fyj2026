@@ -1,0 +1,55 @@
+class PlaceSection extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <section id="place" class="w-full bg-white text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
+        <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+            <h2 class="text-3xl md:text-4xl tracking-[0.2em] uppercase font-light text-neutral-500">Ubicación</h2>
+
+            <p class="font-wedding text-5xl md:text-6xl text-amber-700/80 leading-none">Entre Lago Salones</p>
+
+            <div class="w-16 h-0.5 bg-amber-700/30 my-2"></div>
+
+            <div class="space-y-4 max-w-md">
+              <div class="flex items-start justify-center lg:justify-start space-x-3 text-left">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-amber-700 mt-1 shrink-0">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                </svg>
+                <div>
+                  <h4 class="font-semibold text-neutral-900 tracking-wide">Dirección</h4>
+                  <p class="text-neutral-600 mt-1">Supermanzana conocido, 76915 El Romeral, Qro.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 mt-6 w-full justify-center lg:justify-start">
+              <a href="https://www.google.com/maps/place/Entrelago+Salones,+jardines+y+terraza/@20.5363998,-100.5034855,17z/data=!4m6!3m5!1s0x85d34f52b4faf587:0xec3ed2ffa25ae451!8m2!3d20.5363948!4d-100.5009106!16s%2Fg%2F11hz07qhnl?entry=ttu&g_ep=EgoyMDI2MDcxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 bg-neutral-900 hover:bg-neutral-800 text-white font-medium px-6 py-3 rounded-full transition duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm">
+                <img src="/assets/place/google_logo.svg" alt="Google Logo" class="w-4 h-4 object-contain" />
+                <span>Google Maps</span>
+              </a>
+              <a href="https://maps.apple.com/place?place-id=IC6611A6038EBE8BD&address=76915+Corregidora%2C+Qro.%2C+Mexico&coordinate=20.536200%2C-100.500692&name=Entrelago+Salones%2C+Jardines+y+Terraza&_provider=9902" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center space-x-2 bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-300 font-medium px-6 py-3 rounded-full transition duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 text-sm">
+                <img src="/assets/place/apple_logo.svg" alt="Apple Logo" class="w-4 h-4 object-contain" />
+                <span>Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="relative w-full aspect-video lg:aspect-square h-75 sm:h-100 lg:h-112.5 rounded-2xl overflow-hidden shadow-2xl border border-neutral-100 group">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3736.2634301006333!2d-100.5034855!3d20.5363998!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d34f52b4faf587%3A0xec3ed2ffa25ae451!2sEntrelago%20Salones%2C%20jardines%20y%20terraza!5e0!3m2!1ses!2smx!4v1784073656112!5m2!1ses!2smx"
+              class="absolute inset-0 w-full h-full border-0 grayscale-20 hover:grayscale-0 transition-all duration-700"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <moving-waves color="#ffffff"></moving-waves>
+      </section>
+    `;
+  }
+}
+
+customElements.define('place-section', PlaceSection);
