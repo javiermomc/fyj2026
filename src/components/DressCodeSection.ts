@@ -12,7 +12,7 @@ class DressCodeSection extends HTMLElement {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div class="space-y-4">
               <div class="rounded-2xl bg-neutral-50 border border-neutral-200 p-5">
-                <p class="text-sm uppercase tracking-[0.2em] text-neutral-500">Estilo sugerido</p>
+                <p class="text-sm uppercase tracking-[0.2em] text-neutral-500">Estilo</p>
                 <h3 class="mt-2 text-3xl font-light text-neutral-900">Formal elegante</h3>
               </div>
 
