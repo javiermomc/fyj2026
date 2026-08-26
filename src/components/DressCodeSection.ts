@@ -17,7 +17,7 @@ class DressCodeSection extends HTMLElement {
               </div>
 
               <p class="text-lg leading-relaxed text-neutral-600">
-                Te invitamos a vestir con looks formales y elegantes, en tonos sobrios y sofisticados. Para las mujeres, vestidos largos; para los hombres, traje con corbata.
+                Te invitamos a vestir con looks formales y elegantes, respetando los colores no permitidos. Para las mujeres, vestidos largos; para los hombres, traje con corbata.
               </p>
             </div>
 
@@ -32,8 +32,8 @@ class DressCodeSection extends HTMLElement {
                 </div>
               </div>
 
-              <a href="https://pin.it/6rdZ7JcrA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-neutral-800 hover:shadow-lg">
-                Inspiración
+              <a href="https://pin.it/6rdZ7JcrA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-700 px-5 py-3 text-sm font-medium text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-neutral-800 hover:shadow-lg">
+                Clic para inspiración
                 <span aria-hidden="true" class="h-4 w-4 bg-current mask-no-repeat mask-center mask-contain [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] [-webkit-mask-size:contain]" style="mask-image: url('/assets/icons/link.svg'); -webkit-mask-image: url('/assets/icons/link.svg');"></span>
               </a>
             </div>
