@@ -1,7 +1,7 @@
 class DressCodeSection extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <section id="dress-code" class="w-full bg-neutral-100 text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
+      <section id="dress-code" class="w-full text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
         <div class="max-w-5xl w-full rounded-4xl border border-neutral-200 bg-white p-8 md:p-12 shadow-sm">
           <div class="text-center mb-10">
             <p class="text-sm md:text-base tracking-[0.3em] uppercase font-light text-neutral-500">Código</p>
@@ -9,7 +9,7 @@ class DressCodeSection extends HTMLElement {
             <div class="mx-auto mt-6 w-16 h-0.5 bg-amber-700/30"></div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div class="space-y-4">
               <div class="rounded-2xl bg-neutral-50 border border-neutral-200 p-5">
                 <p class="text-sm uppercase tracking-[0.2em] text-neutral-500">Estilo</p>
@@ -17,7 +17,7 @@ class DressCodeSection extends HTMLElement {
               </div>
 
               <p class="text-lg leading-relaxed text-neutral-600">
-                Te invitamos a vestir con looks formales y elegantes, respetando los colores no permitidos. Para las mujeres, vestidos largos; para los hombres, traje con corbata.
+                Te invitamos a vestir con looks formales y elegantes. Para las mujeres, vestidos largos; para los hombres, con traje
               </p>
             </div>
 
@@ -32,7 +32,7 @@ class DressCodeSection extends HTMLElement {
                 </div>
               </div>
 
-              <a href="https://pin.it/6rdZ7JcrA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-700 px-5 py-3 text-sm font-medium text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-neutral-800 hover:shadow-lg">
+              <a href="https://pin.it/6rdZ7JcrA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-700 px-5 py-3 text-sm font-medium text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-green-900 hover:shadow-lg">
                 Clic para inspiración
                 <span aria-hidden="true" class="h-4 w-4 bg-current mask-no-repeat mask-center mask-contain [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] [-webkit-mask-size:contain]" style="mask-image: url('/assets/icons/link.svg'); -webkit-mask-image: url('/assets/icons/link.svg');"></span>
               </a>

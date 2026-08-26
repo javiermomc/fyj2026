@@ -1,7 +1,7 @@
 class ChurchSection extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <section id="place" class="w-full bg-neutral-50 text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
+      <section id="place" class="w-full text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
         <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             <h2 class="text-3xl md:text-4xl tracking-[0.2em] uppercase font-light text-neutral-500">Iglesia</h2>

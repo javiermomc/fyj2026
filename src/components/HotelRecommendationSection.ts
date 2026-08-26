@@ -10,7 +10,6 @@ export interface RecommendationSectionConfig {
   recommendations: Recommendation[];
   title: string;
   subtitle: string;
-  background: 'bg-neutral-50' | 'bg-white';
 }
 
 export class RecommendationSection extends HTMLElement {
@@ -30,10 +29,10 @@ export class RecommendationSection extends HTMLElement {
       return;
     }
 
-    const { recommendations, title, subtitle, background } = this.config;
+    const { recommendations, title, subtitle } = this.config;
 
     this.innerHTML = `
-      <section class="w-full ${background} text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
+      <section class="w-full text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
         <div class="max-w-6xl w-full">
           <div class="text-center mb-12">
             <p class="text-sm md:text-base tracking-[0.3em] uppercase font-light text-neutral-500">${subtitle}</p>

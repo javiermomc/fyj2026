@@ -28,6 +28,14 @@ landing-section {
   background: #0a0a0a;
 }
 
+body > :not(landing-section):nth-child(even) > section {
+  background-color: #ffffff;
+}
+
+body > :not(landing-section):nth-child(odd) > section {
+  background-color: #f5f5f5;
+}
+
 .font-wedding {
   font-family: "Great Vibes", cursive;
   font-weight: 400;

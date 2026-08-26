@@ -1,7 +1,7 @@
 class GiftRegistrySection extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-      <section id="gifts" class="w-full bg-neutral-50 text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
+      <section id="gifts" class="w-full text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
         <div class="max-w-6xl w-full">
           <div class="text-center mb-12">
             <p class="text-sm md:text-base tracking-[0.3em] uppercase font-light text-neutral-500">Agradecimiento</p>

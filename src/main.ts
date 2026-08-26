@@ -36,7 +36,6 @@ document.querySelector<RecommendationSection>('#hotels')?.setConfig({
 	recommendations: hotelRecommendations,
 	title: 'Recomendación hotelera',
 	subtitle: 'Hospedaje',
-	background: 'bg-white',
 });
 
 const makeupRecommendations = [
@@ -67,6 +66,5 @@ document.querySelector<RecommendationSection>('#makeup')?.setConfig({
 	recommendations: makeupRecommendations,
 	title: 'Recomendaciones de maquillaje',
 	subtitle: 'Belleza',
-	background: 'bg-neutral-50',
 });
 
