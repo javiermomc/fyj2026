@@ -1,6 +1,7 @@
 import './style.css'
 import './components/MovingWaves'
 import './components/LandingSection'
+import './components/ChurchSection'
 import './components/PlaceSection'
 import './components/GiftRegistrySection'
 import './components/HotelRecommendationSection'
