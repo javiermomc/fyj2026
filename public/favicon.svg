@@ -5,7 +5,7 @@
      width="3.6in" height="3.6in"
      viewBox="0 0 1080 1080">
   <path id="path1"
-        fill="0000" stroke="black" stroke-width="1"
+        fill="#fff" stroke="white" stroke-width="1"
         d="M 645.46,706.03
            C 635.56,693.65 615.04,661.28 608.18,647.05
              566.36,683.36 525.85,708.03 468.79,707.36
