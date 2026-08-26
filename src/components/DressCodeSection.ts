@@ -2,10 +2,10 @@ class DressCodeSection extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <section id="dress-code" class="w-full bg-neutral-100 text-neutral-800 py-20 px-6 md:px-12 flex flex-col items-center">
-        <div class="max-w-5xl w-full rounded-[2rem] border border-neutral-200 bg-white p-8 md:p-12 shadow-sm">
+        <div class="max-w-5xl w-full rounded-4xl border border-neutral-200 bg-white p-8 md:p-12 shadow-sm">
           <div class="text-center mb-10">
             <p class="text-sm md:text-base tracking-[0.3em] uppercase font-light text-neutral-500">Código</p>
-            <h2 class="mt-4 font-wedding text-5xl md:text-6xl text-amber-700/80">Código de vestimenta</h2>
+            <h2 class="mt-4 font-wedding text-6xl md:text-7xl text-amber-700 drop-shadow-sm">Código de vestimenta</h2>
             <div class="mx-auto mt-6 w-16 h-0.5 bg-amber-700/30"></div>
           </div>
 
@@ -17,22 +17,25 @@ class DressCodeSection extends HTMLElement {
               </div>
 
               <p class="text-lg leading-relaxed text-neutral-600">
-                Te invitamos a vestir con looks formales y elegantes, en tonos sobrios y sofisticados. Para las mujeres, vestidos largos o de coctel; para los hombres, traje o saco con corbata.
+                Te invitamos a vestir con looks formales y elegantes, en tonos sobrios y sofisticados. Para las mujeres, vestidos largos; para los hombres, traje con corbata.
               </p>
             </div>
 
-            <div class="rounded-3xl bg-gradient-to-br from-neutral-900 via-neutral-800 to-amber-900 p-6 text-white">
-              <p class="text-sm uppercase tracking-[0.25em] text-neutral-300">Paleta recomendada</p>
-              <div class="mt-6 flex flex-wrap gap-3">
-                <span class="h-12 w-12 rounded-full border border-white/30 bg-[#f5efe5]" title="Blanco crema"></span>
-                <span class="h-12 w-12 rounded-full border border-white/30 bg-[#d6c3a5]" title="Beige dorado"></span>
-                <span class="h-12 w-12 rounded-full border border-white/30 bg-[#b98a4d]" title="Oro suave"></span>
-                <span class="h-12 w-12 rounded-full border border-white/30 bg-[#4b4b4b]" title="Gris oscuro"></span>
-                <span class="h-12 w-12 rounded-full border border-white/30 bg-[#1f1f1f]" title="Negro elegante"></span>
+            <div class="flex flex-col items-stretch gap-6">
+              <div class="rounded-3xl bg-linear-to-br from-neutral-900 via-neutral-800 to-amber-900 p-6 text-white">
+                <p class="text-sm font-bold uppercase tracking-[0.25em] text-white">Colores no permitidos</p>
+                <div class="mt-6 grid grid-cols-2 gap-3">
+                  <span class="rounded-xl border border-white/20 bg-white px-4 py-3 text-center text-sm font-medium text-neutral-900">Blanco</span>
+                  <span class="rounded-xl border border-white/20 bg-[#d6c3a5] px-4 py-3 text-center text-sm font-medium text-neutral-900">Beige</span>
+                  <span class="rounded-xl border border-white/20 bg-[#722f37] px-4 py-3 text-center text-sm font-medium text-white">Vino</span>
+                  <span class="rounded-xl border border-white/20 bg-red-600 px-4 py-3 text-center text-sm font-medium text-white">Rojo</span>
+                </div>
               </div>
-              <p class="mt-6 text-sm leading-relaxed text-neutral-200">
-                Los colores tierra, blanco, beige, champagne y tonos neutros son perfectos para completar la estética del evento.
-              </p>
+
+              <a href="https://pin.it/6rdZ7JcrA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-5 py-3 text-sm font-medium text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-neutral-800 hover:shadow-lg">
+                Inspiración
+                <span aria-hidden="true" class="h-4 w-4 bg-current mask-no-repeat mask-center mask-contain [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] [-webkit-mask-size:contain]" style="mask-image: url('/assets/icons/link.svg'); -webkit-mask-image: url('/assets/icons/link.svg');"></span>
+              </a>
             </div>
           </div>
         </div>
