@@ -9,36 +9,36 @@ class GiftRegistrySection extends HTMLElement {
             <div class="mx-auto mt-6 w-16 h-0.5 bg-amber-700/30"></div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <article class="rounded-3xl border border-neutral-200 bg-white p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700 text-xl">🏡</div>
-              <h3 class="text-xl font-semibold text-neutral-900">Hogar</h3>
-              <p class="mt-3 text-neutral-600 leading-relaxed">
-                Si deseas ayudarnos a crear nuestro nuevo hogar, puedes contribuir a artículos para la casa y detalles cotidianos.
+              <div class="inline-flex items-center">
+                <img src="/assets/gift/liverpool.png" alt="Liverpool" class="rounded-xl h-24 w-24 object-contain" />
+                <h3 class="ml-2 text-3xl font-semibold text-neutral-900">Liverpool</h3>
+              </div>
+              <p class="my-3 text-neutral-600 text-lg leading-relaxed">
+                Su presencia es nuestro mejor regalo; si desean tener un detalle adicional, les estaremos muy agradecidos.<br>
+                Número de evento: 60008329
               </p>
+              <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60008329" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#D40086] px-5 py-3 text-sm font-medium text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:bg-[#c9005c] hover:shadow-lg">
+                <span>Mesa de regalos</span>
+                <span aria-hidden="true" class="h-4 w-4 bg-current mask-no-repeat mask-center mask-contain [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] [-webkit-mask-size:contain]" style="mask-image: url('/assets/icons/link.svg'); -webkit-mask-image: url('/assets/icons/link.svg');"></span>
+              </a>
             </article>
 
             <article class="rounded-3xl border border-neutral-200 bg-white p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700 text-xl">💍</div>
-              <h3 class="text-xl font-semibold text-neutral-900">Luna de miel</h3>
-              <p class="mt-3 text-neutral-600 leading-relaxed">
-                Tu apoyo también nos acompañará en este nuevo comienzo con una escapada especial para celebrar nuestro inicio como familia.
+              <div class="inline-flex items-center">
+                <img src="/assets/gift/palacio-de-hierro.png" alt="Palacio de Hierro" class="rounded-xl h-24 w-24 object-contain" />
+                <h3 class="ml-2 text-3xl font-semibold text-neutral-900">Palacio de Hierro</h3>
+              </div>
+              <p class="my-3 text-neutral-600 text-lg leading-relaxed">
+                El mejor obsequio es contar con su compañía. Cualquier muestra de afecto será recibida con profunda gratitud.<br>
+                Número de evento: 5002240
               </p>
+              <a href="https://www.elpalaciodehierro.com/listaregalos#/event/5002240" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full bg-[#FFDE21] px-5 py-3 text-sm font-medium text-black shadow-sm ring-1 ring-inset ring-[#d4b900] transition duration-300 hover:-translate-y-0.5 hover:bg-[#e6c81e] hover:shadow-md">
+                <span>Mesa de regalos</span>
+                <span aria-hidden="true" class="h-4 w-4 bg-current mask-no-repeat mask-center mask-contain [-webkit-mask-repeat:no-repeat] [-webkit-mask-position:center] [-webkit-mask-size:contain]" style="mask-image: url('/assets/icons/link.svg'); -webkit-mask-image: url('/assets/icons/link.svg');"></span>
+              </a>
             </article>
-
-            <article class="rounded-3xl border border-neutral-200 bg-white p-7 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-amber-700 text-xl">🎁</div>
-              <h3 class="text-xl font-semibold text-neutral-900">Contribución</h3>
-              <p class="mt-3 text-neutral-600 leading-relaxed">
-                Si prefieres un regalo en efectivo, lo agradecemos mucho y lo destinaremos a nuestro próximo proyecto juntos.
-              </p>
-            </article>
-          </div>
-
-          <div class="mt-10 flex justify-center">
-            <a href="#" class="inline-flex items-center justify-center rounded-full bg-neutral-900 px-7 py-3 text-sm font-medium uppercase tracking-[0.15em] text-white transition hover:bg-neutral-800">
-              Ver lista
-            </a>
           </div>
         </div>
       </section>
