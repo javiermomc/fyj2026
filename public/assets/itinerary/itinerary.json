@@ -1,0 +1,22 @@
+[
+  {
+    "time": "13:30",
+    "title": "Misa",
+    "description": "Le invitamos a acompañarnos en la celebración de nuestra unión durante una ceremonia llena de amor y bendiciones."
+  },
+  {
+    "time": "16:30",
+    "title": "Coctel",
+    "description": "Disfrute de un momento de convivencia y brindis previo a la cena."
+  },
+  {
+    "time": "17:30",
+    "title": "Cena",
+    "description": "Le invitamos a disfrutar de una cena especial, acompañada de brindis y gratos momentos."
+  },
+  {
+    "time": "00:00",
+    "title": "Cierre",
+    "description": "Concluiremos esta celebración agradeciendo sinceramente su distinguida compañía."
+  }
+]
