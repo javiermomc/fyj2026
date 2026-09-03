@@ -1,12 +1,12 @@
 import './style.css'
-import './components/MovingWaves'
-import './components/LandingSection'
-import './components/ChurchSection'
-import './components/PlaceSection'
-import './components/GiftRegistrySection'
-import { RecommendationSection } from './components/HotelRecommendationSection'
-import './components/DressCodeSection'
-import './components/ItinerarySection'
+import './components/MovingWaves/MovingWaves'
+import './components/LandingSection/LandingSection'
+import './components/ChurchSection/ChurchSection'
+import './components/PlaceSection/PlaceSection'
+import './components/GiftRegistrySection/GiftRegistrySection'
+import { RecommendationSection } from './components/RecommendationSection/RecommendationSection'
+import './components/DressCodeSection/DressCodeSection'
+import './components/ItinerarySection/ItinerarySection'
 
 const hotelRecommendations = [
 	{
