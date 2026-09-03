@@ -7,7 +7,7 @@ type Ticket = {
   guests: string;
 };
 
-const csvUrl = '/assets/tickets/tickets.csv';
+const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpmUBJwEM4gD_2ov7K3WXUjSMyd__tI7ObNeJkceiJnfw9R__avcaKAgkJRMb_U2BB0JCmeypfltmH/pub?gid=0&single=true&output=csv';
 
 function normalize(value: string) {
   return value
