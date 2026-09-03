@@ -42,15 +42,15 @@ function parseCsv(csv: string): Ticket[] {
 class TicketsSection extends HTMLElement {
   connectedCallback() {
     this.innerHTML = template;
-    this.hidden = true;
     void this.loadTicket();
   }
 
   private async loadTicket() {
+    const contentElement = this.querySelector<HTMLElement>('[data-ticket-content]');
     const nameElement = this.querySelector<HTMLElement>('[data-ticket-name]');
     const messageElement = this.querySelector<HTMLElement>('[data-ticket-message]');
 
-    if (!nameElement || !messageElement) {
+    if (!contentElement || !nameElement || !messageElement) {
       return;
     }
 
@@ -68,7 +68,7 @@ class TicketsSection extends HTMLElement {
 
       nameElement.textContent = `${ticket.name} ${ticket.surnames}`.trim();
       messageElement.textContent = `Hemos reservado ${ticket.guests} ${ticket.guests === '1' ? 'boleto' : 'boletos'} en su honor`;
-      this.hidden = false;
+      contentElement.hidden = false;
     } catch {
       return;
     }
