@@ -15,10 +15,16 @@ import './common/SectionDividers/SectionDividers'
 const hotelRecommendations = [
 	{
 		name: 'Flamingo Inn',
-		description: 'Excelente opción para quienes buscan comodidad, seguridad y buen servicio.',
+		description: 'Excelente opción para quienes buscan un lugar céntrico, cómodo y de fácil acceso a los lugares de la boda.',
 		backgroundUrl: '/assets/hotels/flamingo-inn.jpg',
 		googleMapsUrl: 'https://maps.app.goo.gl/6MAaGhGkxyjNfAqF8',
 		appleMapsUrl: 'https://maps.apple/p/F9HChcPP0xf4Dp',
+		bulletPoints: [
+			{
+				icon: 'concierge',
+				description: 'Check-in 3PM (Despues de la misa)',
+			}
+		]
 	},
 ];
 
@@ -36,14 +42,14 @@ const makeupRecommendations = [
 		googleMapsUrl: 'https://maps.app.goo.gl/CMCQgUhRkovH8NoW9',
 		appleMapsUrl: 'https://maps.apple/p/BcctahI6UUCeg2',
 	},
-    {
+	{
 		name: 'Alejandro Tavera Makeup',
 		description: 'Servicios de maquillaje profesional para el día de la boda.',
 		backgroundUrl: '/assets/makeup/alejandro-tavera.jpg',
 		googleMapsUrl: 'https://maps.app.goo.gl/E59PFLpZB4vHrsjf7',
 		appleMapsUrl: 'https://maps.apple/p/~s-HW1PT8qv7IG',
 	},
-    {
+	{
 		name: 'Miriam Salón',
 		description: 'Opciones de maquillaje para invitadas y eventos especiales.',
 		backgroundUrl: '/assets/makeup/miriam.jpg',
