@@ -8,6 +8,7 @@ import './components/GiftRegistrySection/GiftRegistrySection'
 import { RecommendationSection } from './components/RecommendationSection/RecommendationSection'
 import './components/DressCodeSection/DressCodeSection'
 import './components/ItinerarySection/ItinerarySection'
+import './components/ConfirmationSection/ConfirmationSection'
 
 const hotelRecommendations = [
 	{
