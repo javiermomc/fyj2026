@@ -19,12 +19,6 @@ const hotelRecommendations = [
 		backgroundUrl: '/assets/hotels/flamingo-inn.jpg',
 		googleMapsUrl: 'https://maps.app.goo.gl/6MAaGhGkxyjNfAqF8',
 		appleMapsUrl: 'https://maps.apple/p/F9HChcPP0xf4Dp',
-		bulletPoints: [
-			{
-				icon: 'concierge',
-				description: 'Check-in 3PM (Despues de la misa)',
-			}
-		]
 	},
 ];
 
@@ -32,6 +26,9 @@ document.querySelector<RecommendationSection>('#hotels')?.setConfig({
 	recommendations: hotelRecommendations,
 	title: 'Recomendación hotelera',
 	subtitle: 'Hospedaje',
+	footer: [
+		'Recuerda que el check-in en los lugares de hospedaje es a partir de las 3:00 p.m.',
+	]
 });
 
 const makeupRecommendations = [

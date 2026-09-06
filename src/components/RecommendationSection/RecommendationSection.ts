@@ -18,6 +18,7 @@ export interface RecommendationSectionConfig {
   recommendations: Recommendation[];
   title: string;
   subtitle: string;
+  footer?: string[];
 }
 
 export class RecommendationSection extends HTMLElement {
@@ -34,7 +35,7 @@ export class RecommendationSection extends HTMLElement {
 
   private render() {
     if (!this.config) return;
-    const { recommendations, title, subtitle } = this.config;
+    const { recommendations, title, subtitle, footer } = this.config;
     const cards = recommendations.map((recommendation) => `
       <article class="basis-full max-w-100 overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm md:flex-1 md:basis-[calc((100%-3rem)/3)]">
         <div class="h-40 bg-cover bg-center" style="background-image: url('${recommendation.backgroundUrl}')"></div>
@@ -44,7 +45,10 @@ export class RecommendationSection extends HTMLElement {
         </div>
       </article>
     `).join('');
-    this.innerHTML = template.replace('{{subtitle}}', subtitle).replace('{{title}}', title).replace('{{recommendations}}', cards);
+    const footerMarkup = footer?.length
+      ? `<div class="mt-12 border-t border-neutral-300 pt-6 text-center"><div class="space-y-2 text-xs tracking-[0.3em] uppercase font-light text-neutral-500">${footer.map((text) => `<p>${text}</p>`).join('')}</div></div>`
+      : '';
+    this.innerHTML = template.replace('{{subtitle}}', subtitle).replace('{{title}}', title).replace('{{recommendations}}', cards).replace('{{footer}}', footerMarkup);
   }
 }
 
