@@ -1,0 +1,20 @@
+[
+  {
+    "section": "gift-registry",
+    "imgs": [
+      {
+        "position": "bottom-right",
+        "tilt": "right",
+        "margin": "4vw",
+        "minMargin": "1rem",
+        "size": "10vw",
+        "minSize": "8rem",
+        "footerSize": "1.5rem",
+        "minFooterSize": "0.75rem",
+        "imageX": "50%",
+        "imageY": "20%",
+        "url": "/assets/polaroids/img-1.jpg"
+      }
+    ]
+  }
+]

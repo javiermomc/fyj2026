@@ -9,6 +9,8 @@ import { RecommendationSection } from './components/RecommendationSection/Recomm
 import './components/DressCodeSection/DressCodeSection'
 import './components/ItinerarySection/ItinerarySection'
 import './components/ConfirmationSection/ConfirmationSection'
+import './common/SectionPolaroids/SectionPolaroids'
+import './common/SectionDividers/SectionDividers'
 
 const hotelRecommendations = [
 	{

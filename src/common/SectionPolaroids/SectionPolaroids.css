@@ -1,0 +1,51 @@
+.section-polaroid-target {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.section-polaroid-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.section-polaroid {
+  position: absolute;
+  max-width: calc(100vw - 2rem);
+  padding: 0.55rem 0.55rem max(var(--polaroid-min-footer-size), var(--polaroid-footer-size));
+  background: #fff;
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 0.22);
+  transform: rotate(var(--polaroid-rotation));
+  transform-origin: center;
+}
+
+.section-polaroid[data-position='top-left'] {
+  top: max(var(--polaroid-min-margin), var(--polaroid-margin));
+  left: max(var(--polaroid-min-margin), var(--polaroid-margin));
+}
+
+.section-polaroid[data-position='top-right'] {
+  top: max(var(--polaroid-min-margin), var(--polaroid-margin));
+  right: max(var(--polaroid-min-margin), var(--polaroid-margin));
+}
+
+.section-polaroid[data-position='bottom-left'] {
+  bottom: max(var(--polaroid-min-margin), var(--polaroid-margin));
+  left: max(var(--polaroid-min-margin), var(--polaroid-margin));
+}
+
+.section-polaroid[data-position='bottom-right'] {
+  right: max(var(--polaroid-min-margin), var(--polaroid-margin));
+  bottom: max(var(--polaroid-min-margin), var(--polaroid-margin));
+}
+
+.section-polaroid img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+

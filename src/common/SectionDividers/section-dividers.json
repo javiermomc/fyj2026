@@ -1,0 +1,59 @@
+[
+  {
+    "afterSection": "itinerary",
+    "size": "14rem",
+    "minSize": "8rem",
+    "backgroundX": "50%",
+    "backgroundY": "-47vw",
+    "url": "/assets/dividers/div-1.jpg"
+  },
+  {
+    "afterSection": "church",
+    "size": "14rem",
+    "minSize": "8rem",
+    "backgroundX": "50%",
+    "backgroundY": "-42vw",
+    "url": "/assets/dividers/div-2.jpg"
+  },
+  {
+    "afterSection": "place",
+    "size": "14rem",
+    "minSize": "8rem",
+    "backgroundX": "50%",
+    "backgroundY": "-15vw",
+    "url": "/assets/dividers/div-3.jpg"
+  },
+  {
+    "afterSection": "tickets",
+    "size": "14rem",
+    "minSize": "8rem",
+    "backgroundX": "50%",
+    "backgroundY": "-40vw",
+    "url": "/assets/dividers/div-4.jpg"
+  },
+  {
+    "afterSection": "recommendation",
+    "id": "hotels",
+    "size": "14rem",
+    "minSize": "8rem",
+    "backgroundX": "50%",
+    "backgroundY": "-60vw",
+    "url": "/assets/dividers/div-8.jpg"
+  },
+  {
+    "afterSection": "gift-registry",
+    "size": "16rem",
+    "minSize": "8rem",
+    "backgroundX": "50%",
+    "backgroundY": "-45vw",
+    "url": "/assets/dividers/div-6.jpg"
+  },
+  {
+    "afterSection": "dress-code",
+    "size": "14rem",
+    "minSize": "8rem",
+    "backgroundX": "50%",
+    "backgroundY": "-59vw",
+    "url": "/assets/dividers/div-7.jpg"
+  }
+]

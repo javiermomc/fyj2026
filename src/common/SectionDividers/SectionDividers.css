@@ -1,0 +1,14 @@
+section-divider {
+  display: block;
+  width: 100%;
+}
+
+.section-divider-image {
+  width: 100%;
+  min-height: var(--divider-min-size);
+  height: var(--divider-size);
+  background-image: var(--divider-image);
+  background-position: var(--divider-x) var(--divider-y);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
