@@ -18,13 +18,6 @@ const hotelRecommendations = [
 		googleMapsUrl: 'https://maps.app.goo.gl/6MAaGhGkxyjNfAqF8',
 		appleMapsUrl: 'https://maps.apple/p/F9HChcPP0xf4Dp',
 	},
-	{
-		name: 'Real de Minas',
-		description: 'A 10 minutos del salón, ideal para una estancia tranquila y cómoda.',
-		backgroundUrl: '/assets/hotels/real-de-minas.jpg',
-		googleMapsUrl: 'https://maps.app.goo.gl/ABeQxaRFEQwgJL9x5',
-		appleMapsUrl: 'https://maps.apple/p/~owo3.NWDrAz3r',
-	},
 ];
 
 document.querySelector<RecommendationSection>('#hotels')?.setConfig({
