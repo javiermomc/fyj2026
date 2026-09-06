@@ -11,13 +11,6 @@ import './components/ItinerarySection/ItinerarySection'
 
 const hotelRecommendations = [
 	{
-		name: 'Plaza Camelinas',
-		description: 'A 10min de la Iglesia, A 15min del salón',
-		backgroundUrl: '/assets/hotels/plaza-camelinas.jpg',
-		googleMapsUrl: 'https://maps.app.goo.gl/tRqRwR5J9wesazdx8',
-		appleMapsUrl: 'https://maps.apple/p/t0qufBIrsNC0eb',
-	},
-	{
 		name: 'Flamingo Inn',
 		description: 'Excelente opción para quienes buscan comodidad, seguridad y buen servicio.',
 		backgroundUrl: '/assets/hotels/flamingo-inn.jpg',

@@ -66,8 +66,11 @@ class TicketsSection extends HTMLElement {
         return;
       }
 
-      nameElement.textContent = `${ticket.name} ${ticket.surnames}`.trim();
-      messageElement.textContent = `Hemos reservado ${ticket.guests} ${ticket.guests === '1' ? 'boleto' : 'boletos'} en su honor`;
+      nameElement.innerHTML = `<span class="font-bold text-rose-900 text-6xl">${ticket.name.trim() + ' ' + ticket.surnames.trim()}</span>`;
+      messageElement.innerHTML = `
+      Hemos reservado <br>
+      <span class="font-bold text-rose-900 text-6xl">${ticket.guests} ${ticket.guests === '1' ? 'lugar' : 'lugares'}</span> <br>
+      en su honor`;
       contentElement.hidden = false;
     } catch {
       return;
