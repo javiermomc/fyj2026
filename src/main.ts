@@ -15,7 +15,7 @@ import './common/SectionDividers/SectionDividers'
 const hotelRecommendations: Recommendation[] = [
 	{
 		name: 'Flamingo Inn',
-		description: 'Hotel con edificios tipo era colonial. Céntrico, cómodo y de fácil acceso a los lugares de la boda.',
+		description: 'Hotel con edificios tipo campestre. Céntrico, cómodo y de fácil acceso a los lugares de la boda.',
 		backgroundUrl: '/assets/hotels/flamingo-inn.jpg',
 		googleMapsUrl: 'https://maps.app.goo.gl/6MAaGhGkxyjNfAqF8',
 		appleMapsUrl: 'https://maps.apple/p/F9HChcPP0xf4Dp',
