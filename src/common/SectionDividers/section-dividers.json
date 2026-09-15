@@ -55,5 +55,14 @@
     "backgroundX": "50%",
     "backgroundY": "-59vw",
     "url": "/assets/dividers/div-7.jpg"
+  },
+  {
+    "afterSection": "recommendation",
+    "id": "makeup",
+    "size": "14rem",
+    "minSize": "8rem",
+    "backgroundX": "50%",
+    "backgroundY": "-40vw",
+    "url": "/assets/dividers/div-9.jpg"
   }
 ]

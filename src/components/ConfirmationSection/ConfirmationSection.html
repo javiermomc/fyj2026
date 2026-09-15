@@ -1,4 +1,25 @@
-<section
-    class="flex items-center justify-center w-full h-112 bg-cover bg-[url('/assets/confirmation/background_img.jpg')] text-white bg-center bg-no-repeat">
-    <h1 class="m-4 rounded-3xl border border-white/30 bg-[rgb(0_0_0/0.2)] p-6 text-center text-6xl font-bold font-wedding">Ayudanos confirmando tu asistencia</h1>
+<section class="flex min-h-112 w-full items-center justify-center bg-white px-6 py-16 text-neutral-900">
+    <div class="w-full max-w-2xl rounded-2xl border border-neutral-200 bg-white p-6 text-center shadow-xl sm:p-10">
+        <p class="text-xs uppercase tracking-[0.3em] text-neutral-500">Confirmación de asistencia</p>
+        <h2 class="mt-4 font-wedding text-5xl font-normal text-rose-900/80 sm:text-7xl">Será un honor contar contigo</h2>
+        <div data-confirmation-content hidden>
+            <p data-existing-confirmation hidden class="mt-6 text-lg font-semibold text-rose-900/80">Tu asistencia ya está confirmada. Puedes editar tu confirmación a continuación.</p>
+            <p class="mt-6 text-lg text-neutral-700">A nombre de</p>
+            <p data-confirmation-name class="mt-1 wrap-break-word font-wedding text-4xl text-rose-900/80 sm:text-5xl"></p>
+            <p class="mt-6 text-base text-neutral-700">¿Cuántas personas asistirán?</p>
+            <form data-confirmation-form class="mx-auto mt-4 flex max-w-sm flex-col items-stretch gap-3">
+                <label class="sr-only" for="confirmation-guests">Número de confirmaciones</label>
+                <input id="confirmation-guests" data-confirmation-guests type="number" min="0" step="1" required aria-describedby="confirmation-guests-error" class="rounded-full border border-neutral-400 bg-white px-4 py-3 text-center text-xl text-black outline-none ring-rose-900/80 focus:ring-2" />
+                <p id="confirmation-guests-error" data-confirmation-guests-error hidden class="text-sm text-rose-900/80" role="alert"></p>
+                <button type="submit" class="cursor-pointer rounded-lg bg-rose-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-rose-800 disabled:cursor-default disabled:opacity-60">Confirmar asistencia</button>
+                <button data-cancel-confirmation type="button" class="cursor-pointer rounded-lg border border-neutral-300 px-5 py-3 text-sm font-semibold text-neutral-800 transition hover:bg-neutral-100 disabled:cursor-default disabled:opacity-60">No podremos asistir</button>
+            </form>
+            <p data-confirmation-status role="status" class="mt-4 min-h-6 text-sm text-neutral-700"></p>
+            <div data-confirmation-success hidden class="mt-8">
+                <p data-confirmation-success-message class="font-wedding text-4xl text-rose-900/80 sm:text-6xl"></p>
+                <button data-edit-confirmation type="button" class="mt-6 cursor-pointer rounded-lg border border-neutral-300 px-5 py-3 text-sm font-semibold text-neutral-800 transition hover:bg-neutral-100">Editar confirmación</button>
+            </div>
+        </div>
+        <p data-confirmation-error hidden class="mt-8 text-sm text-neutral-700">No encontramos los datos de esta invitación.</p>
+    </div>
 </section>

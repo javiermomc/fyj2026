@@ -9,6 +9,7 @@ import { RecommendationSection, type Recommendation } from './components/Recomme
 import './components/DressCodeSection/DressCodeSection'
 import './components/ItinerarySection/ItinerarySection'
 import './components/ConfirmationSection/ConfirmationSection'
+import './components/GoodbyeSection/GoodbyeSection'
 import './common/SectionPolaroids/SectionPolaroids'
 import './common/SectionDividers/SectionDividers'
 

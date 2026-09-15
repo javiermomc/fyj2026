@@ -1,43 +1,5 @@
 import template from './TicketsSection.html?raw';
-
-type Ticket = {
-  name: string;
-  surnames: string;
-  label: string;
-  guests: string;
-};
-
-const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpmUBJwEM4gD_2ov7K3WXUjSMyd__tI7ObNeJkceiJnfw9R__avcaKAgkJRMb_U2BB0JCmeypfltmH/pub?gid=899378204&single=true&output=csv';
-
-function normalize(value: string) {
-  return value
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .trim()
-    .toLocaleLowerCase();
-}
-
-function parseCsv(csv: string): Ticket[] {
-  const rows = csv.match(/(?:^|\n)(?:"(?:[^"]|"")*"|[^,\n]*)?(?:,(?:"(?:[^"]|"")*"|[^,\n]*))*?(?=\n|$)/g) ?? [];
-  const values = rows.map((row) => row.replace(/^\n/, '').split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map((value) =>
-    value.trim().replace(/^"|"$/g, '').replace(/""/g, ''))
-  );
-  const headers = values.shift()?.map(normalize) ?? [];
-  const indexOf = (header: string) => headers.indexOf(normalize(header));
-  const nameIndex = indexOf('Nombre');
-  const surnamesIndex = indexOf('Apellido(s)');
-  const labelIndex = indexOf('Etiqueta');
-  const guestsIndex = indexOf('Invitados');
-
-  return values
-    .filter((row) => row.some((value) => value.length > 0))
-    .map((row) => ({
-      name: row[nameIndex] ?? '',
-      surnames: row[surnamesIndex] ?? '',
-      label: row[labelIndex] ?? '',
-      guests: row[guestsIndex] ?? '',
-    }));
-}
+import { getTicketFromUrl } from '../../common/GuestList';
 
 class TicketsSection extends HTMLElement {
   connectedCallback() {
@@ -55,18 +17,13 @@ class TicketsSection extends HTMLElement {
     }
 
     try {
-      const response = await fetch(csvUrl);
-      if (!response.ok) throw new Error(`Unable to load ${csvUrl}`);
-      const parameters = new URLSearchParams(window.location.search);
-      const ticket = parseCsv(await response.text()).find((item) =>
-        Array.from(parameters.keys()).some((parameter) => normalize(parameter) === normalize(item.label))
-      );
+      const ticket = await getTicketFromUrl();
 
       if (!ticket) {
         return;
       }
 
-      nameElement.innerHTML = `<span class="font-bold text-rose-900 text-6xl">${ticket.name.trim() + ' ' + ticket.surnames.trim()}</span>`;
+      nameElement.textContent = ticket.name.trim() + ' ' + ticket.surnames.trim();
       messageElement.innerHTML = `
       Hemos reservado <br>
       <span class="font-bold text-rose-900 text-6xl">${ticket.guests} ${ticket.guests === '1' ? 'lugar' : 'lugares'}</span> <br>
