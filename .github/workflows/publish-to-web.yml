@@ -37,15 +37,7 @@ jobs:
         run: |
           set -euo pipefail
           ftp_host="${FTP_URL#ftp://}"
-          ftp_host="${ftp_host#ftps://}"
-          remote_dir="${FTP_FOLDER:-/}"
-          remote_dir="${remote_dir#/}"
-          remote_dir="${remote_dir%/}"
-          if [[ -z "$remote_dir" || "$remote_dir" == "/" ]]; then
-            remote_dir="."
-          fi
           echo "FTP_HOST=${ftp_host}" >> "$GITHUB_ENV"
-          echo "FTP_REMOTE_DIR=${remote_dir}" >> "$GITHUB_ENV"
 
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -55,5 +47,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./dist/
-          server-dir: ${{ env.FTP_REMOTE_DIR }}/
+          server-dir: ${{ vars.FTP_FOLDER }}/
           dangerous-clean-slate: true
