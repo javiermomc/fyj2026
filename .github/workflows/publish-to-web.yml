@@ -32,28 +32,21 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Install lftp
-        run: sudo apt-get update && sudo apt-get install -y lftp
-
-      - name: Upload to FTP
+      - name: Prepare FTP host
         shell: bash
         run: |
           set -euo pipefail
+          ftp_host="${FTP_URL#ftp://}"
+          ftp_host="${ftp_host#ftps://}"
+          echo "FTP_HOST=${ftp_host}" >> "$GITHUB_ENV"
 
-          if [[ -z "${FTP_URL:-}" || -z "${FTP_USER:-}" || -z "${FTP_PASSWORD:-}" || -z "${FTP_PORT:-}" ]]; then
-            echo "Missing FTP configuration."
-            exit 1
-          fi
-
-          remote_path="${FTP_FOLDER:-/}"
-
-          lftp -u "${FTP_USER},${FTP_PASSWORD}" -p "${FTP_PORT}" "${FTP_URL}" -e "
-            set ftp:ssl-allow no
-            set ftp:passive-mode true
-            set net:max-retries 3
-            mkdir -p ${remote_path}
-            cd ${remote_path}
-            lcd ./dist
-            mirror -R --delete --only-newer --verbose . .
-            bye
-          "
+      - name: Deploy to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ env.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          local-dir: ./dist/
+          server-dir: ${{ vars.FTP_FOLDER }}/
+          dangerous-clean-slate: true
