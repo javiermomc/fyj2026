@@ -1,27 +1,21 @@
-name: Deploy to GitHub Pages
+name: Deploy website to FTP
 
 on:
   push:
     branches:
       - main
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-concurrency:
-  group: 'pages'
-  cancel-in-progress: false
-
 jobs:
   build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    environment: website
     runs-on: ubuntu-latest
+    env:
+      FTP_URL: ${{ secrets.FTP_URL }}
+      FTP_PORT: ${{ secrets.FTP_PORT }}
+      FTP_USER: ${{ secrets.FTP_USER }}
+      FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      FTP_FOLDER: ${{ vars.FTP_FOLDER }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -38,14 +32,27 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './dist'
+      - name: Upload to FTP
+        shell: bash
+        run: |
+          set -euo pipefail
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          if [[ -z "${FTP_URL:-}" || -z "${FTP_USER:-}" || -z "${FTP_PASSWORD:-}" || -z "${FTP_PORT:-}" ]]; then
+            echo "Missing FTP configuration."
+            exit 1
+          fi
+
+          remote_path="${FTP_FOLDER:-/}"
+
+          lftp -u "${FTP_USER},${FTP_PASSWORD}" -p "${FTP_PORT}" "${FTP_URL}" -e "
+            set ftp:ssl-allow no
+            set ftp:passive-mode true
+            set net:max-retries 3
+            mkdir -p ${remote_path}
+            cd ${remote_path}
+            mirror -R --delete --verbose ./dist ./
+            bye
+          "
