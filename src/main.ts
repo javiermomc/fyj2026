@@ -1,4 +1,5 @@
 import './style.css'
+import './common/FloatingSectionMenu/FloatingSectionMenu'
 import './components/MovingWaves/MovingWaves'
 import './components/LandingSection/LandingSection'
 import './components/TicketsSection/TicketsSection'
