@@ -53,6 +53,7 @@ jobs:
             set net:max-retries 3
             mkdir -p ${remote_path}
             cd ${remote_path}
+            glob -a -d rm ./* || true
             mirror -R --delete --verbose ./dist ./
             bye
           "
