@@ -14,7 +14,7 @@ jobs:
       FTP_PORT: ${{ secrets.FTP_PORT }}
       FTP_USER: ${{ secrets.FTP_USER }}
       FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-      FTP_FOLDER: ${{ vars.FTP_FOLDER }}
+      FTP_FOLDER: ${{ env.FTP_FOLDER }}
 
     steps:
       - name: Checkout repository
@@ -48,5 +48,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./dist/
-          server-dir: ${{ vars.FTP_FOLDER }}/
+          server-dir: ${{ env.FTP_FOLDER }}/
           dangerous-clean-slate: true
