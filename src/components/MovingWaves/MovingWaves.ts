@@ -13,7 +13,8 @@ class MovingWaves extends HTMLElement {
       'leading-none',
       'z-20',
       'pointer-events-none',
-      'h-[60px]',
+      'h-[44px]',
+      'sm:h-[54px]',
       'md:h-[120px]',
       'lg:h-[150px]'
     );

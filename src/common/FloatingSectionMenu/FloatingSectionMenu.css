@@ -66,6 +66,7 @@ floating-section-menu {
   visibility: hidden;
   pointer-events: none;
   transform: translateY(12px) scale(0.96);
+  overscroll-behavior: contain;
   transition:
     opacity 0.2s ease 0.08s,
     transform 0.24s ease 0.08s,
@@ -77,6 +78,7 @@ floating-section-menu {
   flex-direction: column;
   gap: 0.5rem;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0.5rem 0.85rem 0.35rem;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
@@ -197,7 +199,8 @@ floating-section-menu {
     bottom: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
+    min-height: 100svh;
     pointer-events: none;
     justify-content: flex-end;
     align-items: stretch;
@@ -215,8 +218,9 @@ floating-section-menu {
   .floating-section-menu__panel {
     width: 100vw;
     max-width: none;
-    height: calc(100vh - 5rem);
-    max-height: calc(100vh - 5rem);
+    height: calc(100dvh - 5rem);
+    min-height: calc(100svh - 5rem);
+    max-height: calc(100dvh - 5rem);
     border-radius: 1.5rem 1.5rem 0 0;
     transform: translateY(20px) scale(0.98);
   }
