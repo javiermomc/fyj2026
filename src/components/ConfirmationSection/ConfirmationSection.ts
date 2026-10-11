@@ -1,5 +1,5 @@
 import template from './ConfirmationSection.html?raw';
-import { confirmationUrl, getHostFromUrl, getTicketFromUrl } from '../../common/GuestList';
+import { confirmationUrl, getHostFromTicket, getTicketFromUrl } from '../../common/GuestList';
 
 type Confirmation = {
   host: 'Fer' | 'Javi';
@@ -71,7 +71,7 @@ class ConfirmationSection extends HTMLElement {
 
       const sendConfirmation = async (confirmation: number) => {
         const payload: Confirmation = {
-          host: getHostFromUrl(),
+          host: getHostFromTicket(ticket),
           tag: ticket.label,
           confirmation,
         };

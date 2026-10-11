@@ -4,6 +4,7 @@ export type Ticket = {
   label: string;
   guests: string;
   confirmation: string;
+  origin: string;
 };
 
 export const confirmationUrl = 'https://script.google.com/macros/s/AKfycbyVYBCmZL-kKm1nRoL6tTO_ax-gzJzjpx7_SNOFrzWyU7jpD3_kPGtuDtkPvJYexc3t0w/exec';
@@ -30,6 +31,7 @@ function parseCsv(csv: string): Ticket[] {
   const labelIndex = indexOf('Etiqueta');
   const guestsIndex = indexOf('Invitados');
   const confirmationIndex = indexOf('Confirmación');
+  const originIndex = indexOf('Origen');
 
   return values
     .filter((row) => row.some((value) => value.length > 0))
@@ -39,6 +41,7 @@ function parseCsv(csv: string): Ticket[] {
       label: row[labelIndex] ?? '',
       guests: row[guestsIndex] ?? '',
       confirmation: row[confirmationIndex] ?? '',
+      origin: row[originIndex] ?? '',
     }));
 }
 
@@ -61,6 +64,6 @@ export function getTicketFromUrl() {
   ));
 }
 
-export function getHostFromUrl(): 'Fer' | 'Javi' {
-  return normalize(new URLSearchParams(window.location.search).get('host') ?? '') === 'javi' ? 'Javi' : 'Fer';
+export function getHostFromTicket(ticket: Ticket): 'Fer' | 'Javi' {
+  return normalize(ticket.origin) === 'javi' ? 'Javi' : 'Fer';
 }
